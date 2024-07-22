@@ -19,11 +19,10 @@ contract ZuniswapV2Factory {
     mapping(address => mapping(address => address)) public pairs;
     address[] public allPairs;
 
-    function createPair(address tokenA, address tokenB)
-        public
-        returns (address pair)
-    {
-        if (tokenA == tokenB) revert IdenticalAddresses();
+    function createPair(address tokenA, address tokenB) public returns (address pair){
+
+        if (tokenA == tokenB) 
+            revert IdenticalAddresses();
 
         (address token0, address token1) = tokenA < tokenB
             ? (tokenA, tokenB)
